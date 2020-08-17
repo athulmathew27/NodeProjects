@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/public/zipcode.js"></script>
+    <title>MedShop</title>
+    <%- include('partials/nav_user_add'); %>
+  </head>
+  <body>
+    <div class="container-fluid jumbotron ">        
+      <div class="row w-50 ">
+        <div class="row w-25">
+            <!--empty space on left side of form-->
+        </div>
+        <div class="col-sm" >          
+            <form class="form-control" method="post" action="/login">             
+                <h2> Login</h2>  <br>            
+                <%- include('partials/error_message'); %>
+
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary active btn-sm">
+                      <input type="radio" name="loginas" id="option1" value="admin" autocomplete="off" > Admin
+                    </label>
+                    <label class="btn btn-primary btn-sm">
+                      <input type="radio" name="loginas" id="option2" value="user" autocomplete="off"> User
+                    </label>
+                    <label class="btn btn-primary btn-sm">
+                      <input type="radio" name="loginas" id="option3" value="shop" autocomplete="off"> Shop
+                    </label>
+                </div><br><br>
+                <label >Username/Email id:</label>
+                <input type="text" class="form-control" name="username" placeholder="Enter Email id here" autocomplete="off" value="<%= typeof username != 'undefined' ? username : '' %>">
+                
+                <label >password:</label>
+                <input type="password" class="form-control" name="password" placeholder="Enter password here" autocomplete="off" value="<%= typeof password != 'undefined' ? password : '' %>">                             
+                  <br>
+                <input type="submit" class="btn btn-secondary" name="submit" value="Login">
+                <li >
+                    <p>Are you new to MedShop? <a href="/user"> Register now..</a></p>
+                </li>
+            </form>
+          </div>
+        </div>
+    </div>
+
+  </body>
+  <!--footer-->
+  <div class="container-fluid " style="background-color: black; color: blanchedalmond;">
+    <div class="row">
+      <div class="col-sm">          
+        <h3>About Me.</h3>
+      </div>
+    </div>
+  </div>
+  <!--footer-->
+  </html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/public/zipcode.js"></script>
+    <title>Project 1 Bootstrap</title>
+    <%- include('partials/nav_user_add'); %>
+  </head>
+  <body>
+    <div class="container-fluid jumbotron ">        
+      <div class="row w-75">
+        <div class="row w-25">
+            <!--empty space on left side of form-->
+        </div>
+        <div class="col-sm" >          
+            <form class="form-control" method="post" action="/shop/">             
+                <h2> Add Shop...</h2>              
+                <%- include('partials/error_message'); %>
+                <label >Shop Name:</label>
+                <input type="text" class="form-control" name="name" value="<%= typeof phno != 'undefined' ? name : '' %>">
+                
+                <label >Contact No:</label>
+                <input type="number" class="form-control" name="phno" value="<%= typeof phno != 'undefined' ? phno : '' %>">
+
+                <label> Email:</label>
+                <input type="email" class="form-control" name="email" value="<%= typeof email != 'undefined' ? email : '' %>">
+
+                <label >Building Name/No:</label>
+                <input type="text" class="form-control" name="building" value="<%= typeof building != 'undefined' ? building : '' %>">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputLicence">Licence No.</label>
+                        <input type="text" class="form-control" id="res3" name="licence" value="<%= typeof licence != 'undefined' ? licence : '' %>">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputReg">Registeration No. </label>
+                      <input type="text" class="form-control" id="res4" name="registeration" value="<%= typeof registeration != 'undefined' ? registeration : '' %>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                      <label for="inputpincode">Zipcode</label>
+                      <input type="text" class="form-control" name="pincode" id="pincode" onchange="zipcode()" value="<%= typeof pincode != 'undefined' ? pincode : '' %>">
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="inputpostoffice">Postoffice</label>
+                      <input type="text" class="form-control" id="res1" name="postoffice" value="<%= typeof postoffice != 'undefined' ? postoffice : '' %>">
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="inputstate">District</label>
+                      <input type="text" class="form-control" id="res2" name="district" value="<%= typeof district != 'undefined' ? district: '' %>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputstate">State</label>
+                        <input type="text" class="form-control" id="res3" name="state" value="<%= typeof state != 'undefined' ? state : '' %>">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputcountry">Country</label>
+                      <input type="text" class="form-control" id="res4" name="country" value="<%= typeof country != 'undefined' ? country : '' %>">
+                    </div>
+                </div>
+                                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" name="password1">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword">Confirm Password</label>
+                      <input type="password" class="form-control" name="password2" >
+                    </div>
+                </div>              
+
+                <input type="submit" class="btn btn-secondary" name="submit" value="submit">
+            </form>
+          </div>
+      </div>
+    </div>
+
+  </body>
+  <!--footer-->
+  <div class="container-fluid " style="background-color: black; color: blanchedalmond;">
+    <div class="row">
+      <div class="col-sm">          
+        <h3>About Me.</h3>
+      </div>
+    </div>
+  </div>
+  <!--footer-->
+  </html>

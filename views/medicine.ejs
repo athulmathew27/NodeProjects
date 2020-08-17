@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/public/"></script>
+    <title>MedShop</title>
+    <%- include('partials/nav_user_add'); %>
+  </head>
+  <body>
+    <div class="container-fluid jumbotron ">        
+      <div class="row w-75">
+        <div class="row w-25">
+            <!--empty space on left side of form-->
+        </div>
+        <div class="col-sm" >          
+            <form class="form-control" method="post" action="/med" enctype="multipart/form-data">             
+                <h2> Medicine</h2>              
+                <%- include('partials/error_message'); %>
+                <%= typeof msg != 'undefined' ? msg : '' %>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control"  name="name" value="<%= typeof name != 'undefined' ? name : '' %>">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Images</label>
+                        <div class="custom-file">
+                            <!-- <input type="file"  id="files" name="files[]" multiple>  -->
+                            <input class="form-control-sm" name="myImage" type="file" multiple/>
+                            
+    <img src="<%= typeof file != 'undefined' ? file : '' %>" >
+                            
+                            <!-- <input type="button"  id="img-clck"name="add" value="Add"> -->
+                        </div>
+                    </div>
+                </div>
+
+                <label> Maufacterer</label>
+                <input type="text" class="form-control mb-1" name="manfucater" value="<%= typeof manfucater != 'undefined' ? manfucater : '' %>">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputcategory">Category</label>
+                        <select name="category" class="form-control mb-1">
+                            <option  value="Tablet" selected>Tablet</option>
+                            <option  value="Syrup">Syrup</option>
+                            <option  value="Surgical Equipment">Surgical Equipment</option>
+                            <option  value="Oilment">Oilment/Cream</option>
+                            <option  value="Lotion">Lotion</option>
+                            <option  value="Oil">Oil</option>
+                            <option  value="others">Others</option>                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputExpire">Expire Date</label>
+                      <input type="date" class="form-control mb-1"  name="date" value="<%= typeof date != 'undefined' ? date : '' %>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <label for="inputMrp">MRP</label>
+                      <input type="number" class="form-control mb-1" name="mrp"  value="<%= typeof mrp != 'undefined' ? mrp : '' %>">
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="inputSellPrice">Selling Price</label>
+                      <input type="number" class="form-control mb-1" name="price" value="<%= typeof price != 'undefined' ? price : '' %>">
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputstate">Stock</label>
+                      <input type="number" class="form-control mb-1"  name="stock" value="<%= typeof stock != 'undefined' ? stock: '' %>">
+                    </div>
+
+                    <input type="submit" class="btn btn-secondary" name="submit" value="submit">
+            </form>
+          </div>
+       </div>
+    </div>
+  </body><br><br>
+  <!--footer-->
+  <div class="container-fluid " style="background-color: black; color: blanchedalmond;">
+    <div class="row">
+      <div class="col-sm">          
+        <h3>About Me.</h3>
+      </div>
+    </div>
+  </div>
+  <!--footer-->
+  </html>
+
+<script type="text/javascript">
+
+// $(document).ready(function(){
+//     function addImage() {
+//         var img = document.getElementById("files").value;
+//         console.log(address);
+
+//     }
+//     $("#img-clck").click(addImage);
+// });
+
+
+</script>
+<!-- 
+<script type="text/javascript">
+    var count =0;
+    $(document).ready(function() {
+      if (window.File && window.FileList && window.FileReader) {
+        $("#files").on("change", function(e) {
+          var files = e.target.files,
+            filesLength = files.length;
+            count++;
+          for (var i = 0; i < count; i++) {
+            var f = files[i]
+            var fileReader = new FileReader();
+            fileReader.onload = (function(e) {
+              var file = e.target;
+              $("<span class=\"pip\">" + "<img style=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/><br>" +
+                "<br/><span class=\"removeImg\">Remove image</span>" +
+                "</span>").insertAfter("#files");
+
+              $(".removeImg").click(function(){
+                $(this).parent(".pip").remove();
+              });
+    
+console.log(file);
+    
+            });
+            fileReader.readAsDataURL(f);
+          }
+        });
+      } else {
+        alert("Your browser doesn't support to File API")
+      }
+    }); -->
+    </script>
+
+
+
+    <script >
+// window.onload = function(){
+// 		si_imageReader();
+// 	}
+// 		/*
+// 			formats: [
+// 				image/gif, 
+// 				image/svg+xml, 
+// 				image/png, 
+// 				image/webp, 
+// 				image/jpeg, 
+// 				image/bmp
+// 			]
+// 		*/
+// 	var image_data = [];
+// 	function si_imageReader(){	    
+// 	    if(window.File && window.FileList && window.FileReader)
+// 	    {
+	    	
+// 	        var filesInput = document.getElementById("si_uploader");
+// 	        filesInput.addEventListener("change", function(event){
+// 	            var files = event.target.files; //FileList object
+// 	            var output = document.getElementById("result");
+	            
+// 	            for(var i = 0; i < files.length; i++)
+// 	            {
+// 	                var file = files[i],
+// 	                filename = file.name;
+// 	                if(file.type.match('image')){		                
+// 	                	var _fileReader = new FileReader();
+// 						_fileReader.onload = (function(file) {
+// 						    return function(evt) {
+// 						        si_cookHTML(evt, file)
+// 						    };
+// 					    })(files[i]);
+
+// 					    _fileReader.readAsDataURL(files[i]);
+// 	                }
+// 	            }                               
+// 	        });
+// 	    }
+// 	    else
+// 	    {
+// 	        console.log("Your browser does not support File API");
+// 	    }
+// 	}
+// 	function si_cookHTML(evt, file) {
+// 		// console.log(file)
+// 		var initial = {
+// 			"name": file.name,
+// 	        "size": file.size,
+// 	        "type": file.type,
+// 	        "data": evt.target.result
+//     	};
+//     	image_data.push(initial);
+// 		var img = new Image();
+// 		// var x = ''
+// 		img.onload = function(){
+// 			var x = img.height.toString() +' x '+img.width.toString()
+
+// 			var _size = file.size;
+// 	        var fSExt = new Array('Bytes', 'KB', 'MB', 'GB'),
+// 	        i=0;while(_size>900){_size/=1024;i++;}
+// 	        var exactSize = (Math.round(_size*100)/100)+' '+fSExt[i];
+	        
+// 			img.setAttribute('class', 'si_thumbnailImg');
+//             img.setAttribute('style', 'max-width : 100px');
+// 			img.setAttribute('ondragstart', 'return false;');
+// 			var aTag = document.createElement('div');
+// 			aTag.setAttribute('class', 'si_thumbnailWrapper');
+// 			aTag.appendChild(img);
+
+// 			var overLay = document.createElement('div');
+// 			overLay.setAttribute('class', 'si_thumbnailOverlay');
+
+// 			var lay = '<div class="si_ThumbnailOverlayContent"><small>'+x+' &nbsp;&nbsp;'+exactSize+'</small></div>';
+                
+//             overLay.innerHTML = lay;
+// 			aTag.appendChild(overLay);
+	
+// 			document.querySelector('body').appendChild(aTag)	
+// 		}
+// 		img.src = evt.target.result;
+//         console.log(evt.target.result);// get value here
+//         document.getElementById('textarea').value = evt.target.result;
+// 	}
+
+</script>
